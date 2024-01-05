@@ -1,24 +1,26 @@
-// const Titulo = ({ cor, texto, children }) => {
-//   return <h1 style={{ color: cor }}>{children ? children : texto}</h1>;
-// };
+// Replique a interface como a apresentada na aula
+// Utilize a array abaixo para mostrar os produtos
+// Quebre em componentes o que precisar ser reutilizado
+// Dica: const { pathname } = window.location; (puxa o caminho do URL)
 
-import Form from './Form/Form';
+import Header from './Header';
+import Home from './Home/Home';
+import Produtos from './Produtos/Produtos';
 
 function App() {
-  // return (
-  //   <div>
-  //     <Titulo cor="red" texto="Meu título 1" />
-  //     <Titulo cor="blue" texto="Meu título 2" />
-  //     <Titulo cor="green" texto="Meu título 3">
-  //       Isso é o children
-  //     </Titulo>
-  //     <Titulo texto="Meu título 4" />
-  //   </div>
-  // );
+  const { pathname } = window.location;
+
+  let Pagina;
+  if (pathname === '/produtos') {
+    Pagina = Produtos;
+  } else {
+    Pagina = Home;
+  }
 
   return (
     <>
-      <Form />
+      <Header />
+      <Pagina />
     </>
   );
 }
