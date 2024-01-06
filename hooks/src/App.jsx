@@ -1,26 +1,42 @@
+// Os links abaixo puxam dados de um produto em formato JSON
+// https://ranekapi.origamid.dev/json/api/produto/tablet
+// https://ranekapi.origamid.dev/json/api/produto/smartphone
+// https://ranekapi.origamid.dev/json/api/produto/notebook
+// Crie uma interface com 3 botões, um para cada produto.
+// Ao clicar no botão faça um fetch a api e mostre os dados do produto na tela.
+// Mostre apenas um produto por vez
+// Mostre a mensagem carregando... enquanto o fetch é realizado
+
+import Produto from './produto';
 import React from 'react';
-import ButtonModal from './ButtonModal';
-import Modal from './Modal';
 
 function App() {
-  // const [ativo, setAtivo] = React.useState(false);
-  // const [dados, setDados] = React.useState({ nome: 'Lucas', idade: '29' });
+  const [dados, setDados] = React.useState(null);
+  const [carregando, setCarregando] = React.useState(null);
 
-  // function handleClick() {
-  //   setAtivo(!ativo);
-  //   setDados({ ...dados, faculdade: 'Incompleta' });
-  // }w
-  const [modal, setModal] = React.useState(false);
+  async function handleClick(event) {
+    setCarregando(true);
+    const response = await fetch(
+      `https://ranekapi.origamid.dev/json/api/produto/${event.target.innerText}`
+    );
+    const json = await response.json();
+    setDados(json);
+    setCarregando(false);
+  }
 
   return (
     <>
-      {/* <p>{dados.nome}</p>
-      <p>{dados.idade}</p>
-      <p>{dados.faculdade}</p>
-      <button onClick={handleClick}>{ativo ? 'Ativo' : 'Inativo'}</button> */}
-      <div>{modal ? 'Modal Aberto' : 'Modal Fechado'}</div>
-      <Modal modal={modal} setModal={setModal} />
-      <ButtonModal setModal={setModal} />
+      <button style={{ margin: '.5rem' }} onClick={handleClick}>
+        notebook
+      </button>
+      <button style={{ margin: '.5rem' }} onClick={handleClick}>
+        smartphone
+      </button>
+      <button style={{ margin: '.5rem' }} onClick={handleClick}>
+        tablet
+      </button>
+      {carregando && <p>Carregando...</p>}
+      {!carregando && dados && <Produto dados={dados} />}
     </>
   );
 }

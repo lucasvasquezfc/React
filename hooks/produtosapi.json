@@ -1,0 +1,17 @@
+[
+  {
+    "id": "p1",
+    "nome": "tablet",
+    "url": "https://ranekapi.origamid.dev/json/api/produto/tablet"
+  },
+  {
+    "id": "p2",
+    "nome": "smartphone",
+    "url": "https://ranekapi.origamid.dev/json/api/produto/smartphone"
+  },
+  {
+    "id": "p3",
+    "nome": "notebook",
+    "url": "https://ranekapi.origamid.dev/json/api/produto/notebook"
+  }
+]
