@@ -1,0 +1,52 @@
+* {
+    box-sizing: 0;
+    /* margin: auto; */
+    --gold: #febe01;
+    --gold-button: #332200;
+    --black: #111;
+    --white: #fff;
+    --gray: #b2b2b2;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    margin: auto;
+    margin: 50px;
+}
+
+div {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 30px;
+    margin: 20px;
+    border-radius: 4px;
+}
+
+span {
+    margin: 0;
+    color: var(--gold);
+}
+
+button {
+    background-color: var(--gold);
+    color: var(--gold-button);
+    padding: 10px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+}
+
+h1 {
+    margin: 0;
+    color: var(--black);
+    text-align: center;
+}
+
+h2 {
+    margin: 0;
+}
+
+p{
+    color: var(--gray);
+}
